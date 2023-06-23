@@ -4,7 +4,7 @@ function New-TemporaryPath {
     return Join-Path ([System.IO.Path]::GetTempPath()) (New-Guid).ToString()
 }
 
-function With-TemporaryDirectory {
+function Use-TemporaryDirectory {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]

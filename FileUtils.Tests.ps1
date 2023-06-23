@@ -20,19 +20,19 @@ Describe "New-TemporaryPath" {
     }
 }
 
-Describe "With-TemporaryDirectory" {
+Describe "Use-TemporaryDirectory" {
     BeforeAll {
         . $PSScriptRoot/FileUtils.ps1
     }
 
     It "creates a directory and exposes it as current item" {
-        With-TemporaryDirectory {
+        Use-TemporaryDirectory {
             Test-Path $_ | Should -Be $true
         }
     }
 
     It "removes the directory when leaving the block" {
-        With-TemporaryDirectory {
+        Use-TemporaryDirectory {
             New-Item -Path $_ -Name "test.txt" -ItemType "file"
         }
         Test-Path $_ | Should -Be $false
@@ -40,7 +40,7 @@ Describe "With-TemporaryDirectory" {
 
     It "removes the directory on failure" {
         try {
-            With-TemporaryDirectory {
+            Use-TemporaryDirectory {
                 throw "BOOM!"
             }
             $false | Should -Be $true # should not reach here
