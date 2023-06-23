@@ -1,6 +1,6 @@
 Describe "New-TemporaryPath" {
     BeforeAll {
-        . $PSScriptRoot/FileUtils.ps1
+        . $PSScriptRoot/TempUtils.ps1
     }
 
     It "creates unique names" {
@@ -22,7 +22,7 @@ Describe "New-TemporaryPath" {
 
 Describe "Use-TemporaryDirectory" {
     BeforeAll {
-        . $PSScriptRoot/FileUtils.ps1
+        . $PSScriptRoot/TempUtils.ps1
     }
 
     It "creates a directory and exposes it as current item" {

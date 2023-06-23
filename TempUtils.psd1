@@ -10,7 +10,7 @@
     VariablesToExport = '*'
     AliasesToExport   = @()
     FileList          = @(
-        'FileUtils.ps1'
+        'TempUtils.ps1'
     )
     PrivateData       = @{
         PSData = @{
