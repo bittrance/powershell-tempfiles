@@ -5,6 +5,7 @@ on:
 jobs:
   test:
     strategy:
+      fail-fast: false
       matrix:
         os:
           - ubuntu-latest
@@ -20,7 +21,12 @@ jobs:
       - name: Install dependencies
         shell: pwsh
         run: |
-          Install-Module -Name NtpTime
+          Install-Module -Name NtpTime -Force
+          Install-Module -Name PSScriptAnalyzer -Force
+      - name: Linting
+        shell: pwsh
+        run: |
+          Invoke-ScriptAnalyzer -Path . -EnableExit
       - name: Pester
         id: test_module
         uses: zyborg/pester-tests-report@v1
