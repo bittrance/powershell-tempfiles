@@ -6,7 +6,7 @@
 # This function exists because New-TemporaryFile file names can be guessed and use only a small number of characters. This function uses a GUID to generate a unique name.
 # .LINK
 # https://github.com/bittrance/powershell-tempfiles
-function New-TemporaryPath {
+function Get-TemporaryPath {
     [OutputType([string])]
     [CmdletBinding()]
     param ()
@@ -39,7 +39,7 @@ function Use-TemporaryDirectory {
         $ScriptBlock
     )
 
-    $Path = New-TemporaryPath
+    $Path = Get-TemporaryPath
     try {
         New-Item -Path $Path -ItemType "directory"
         ForEach-Object -InputObject $Path -Process $ScriptBlock

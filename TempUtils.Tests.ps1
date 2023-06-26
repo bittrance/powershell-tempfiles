@@ -1,4 +1,4 @@
-Describe "New-TemporaryPath" {
+Describe "Get-TemporaryPath" {
     BeforeAll {
         . $PSScriptRoot/TempUtils.ps1
     }
@@ -6,21 +6,21 @@ Describe "New-TemporaryPath" {
     It "creates unique names" {
         $Names = @{}
         foreach ($n in 1..1000) {
-            $Names[$(New-TemporaryPath)] = $true
+            $Names[$(Get-TemporaryPath)] = $true
         }
         $Names.Count | Should -Be 1000
     }
 
     It "creates a path which is anchored at OS temp dir" {
-        New-TemporaryPath | Should -BeLikeExactly "$([System.IO.Path]::GetTempPath())*"
+        Get-TemporaryPath | Should -BeLikeExactly "$([System.IO.Path]::GetTempPath())*"
     }
 
     It "does not create actual files" {
-        Test-Path (New-TemporaryPath) | Should -Be $false
+        Test-Path (Get-TemporaryPath) | Should -Be $false
     }
 
     It "is documented" {
-        (Get-Help New-TemporaryPath).Synopsis | Should -BeLike '*uniquely named*'
+        (Get-Help Get-TemporaryPath).Synopsis | Should -BeLike '*uniquely named*'
     }
 }
 
