@@ -6,7 +6,7 @@
     Copyright         = 'This software is released under MIT License.'
     Description       = 'Helpers for temporary files and directories.'
     FunctionsToExport = @()
-    CmdletsToExport   = @('New-TemporaryPath', 'Use-TemporaryDirectory')
+    CmdletsToExport   = @('Get-TemporaryPath', 'Use-TemporaryDirectory')
     VariablesToExport = '*'
     AliasesToExport   = @()
     FileList          = @(

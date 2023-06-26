@@ -6,5 +6,5 @@ All temporary files and directories uses `[System.IO.Path]::GetTempPath()` as a 
 
 This module provides these functions:
 
-- **New-TemporaryPath**: Returns the full path to a uniquely named temporary file. The file is not created.
+- **Get-TemporaryPath**: Returns the full path to a uniquely named temporary file. The file is not created.
 - **Use-TemporaryDirectory**: Create a temporary directory and expose as psitem to the provided scriptblock.
