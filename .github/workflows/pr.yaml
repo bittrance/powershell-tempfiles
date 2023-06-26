@@ -12,8 +12,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     permissions:
       checks: write
+      contents: read
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install dependencies
         shell: pwsh
         run: |
