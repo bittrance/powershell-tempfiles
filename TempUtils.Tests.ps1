@@ -18,6 +18,10 @@ Describe "New-TemporaryPath" {
     It "does not create actual files" {
         Test-Path (New-TemporaryPath) | Should -Be $false
     }
+
+    It "is documented" {
+        (Get-Help New-TemporaryPath).Synopsis | Should -BeLike '*uniquely named*'
+    }
 }
 
 Describe "Use-TemporaryDirectory" {
@@ -48,5 +52,9 @@ Describe "Use-TemporaryDirectory" {
         catch {
             Test-Path $_ | Should -Be $false
         }
+    }
+
+    It "is documented" {
+        (Get-Help Use-TemporaryDirectory).Synopsis | Should -BeLike '*temporary directory*'
     }
 }
