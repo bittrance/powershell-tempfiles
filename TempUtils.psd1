@@ -9,9 +9,7 @@
     CmdletsToExport   = @('Get-TemporaryPath', 'Use-TemporaryDirectory')
     VariablesToExport = '*'
     AliasesToExport   = @()
-    FileList          = @(
-        'TempUtils.ps1'
-    )
+    RootModule        = 'TempUtils.psm1'
     PrivateData       = @{
         PSData = @{
             Tags       = @('tempfile', 'tempdir', 'temporary', 'file', 'directory')

@@ -1,8 +1,6 @@
-Describe "Get-TemporaryPath" {
-    BeforeAll {
-        . $PSScriptRoot/TempUtils.ps1
-    }
+Import-Module ./TempUtils.psm1
 
+Describe "Get-TemporaryPath" {
     It "creates unique names" {
         $Names = @{}
         foreach ($n in 1..1000) {
@@ -25,10 +23,6 @@ Describe "Get-TemporaryPath" {
 }
 
 Describe "Use-TemporaryDirectory" {
-    BeforeAll {
-        . $PSScriptRoot/TempUtils.ps1
-    }
-
     It "creates a directory and exposes it as current item" {
         Use-TemporaryDirectory {
             Test-Path $_ | Should -Be $true
